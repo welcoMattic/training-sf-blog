@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="example-wrapper">
+        Temps de lecture estimé : {{ readingTime }} minutes
+        <br>
+        <br>
+        <h2>{{ postTranslation.title }} - ({{ postTranslation.translatable.category }})</h2>
+
+        <p>
+            {{ postTranslation.body }}
+        </p>
+    </div>
+{% endblock %}

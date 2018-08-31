@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ posts|length }} articles sur le blog{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="example-wrapper">
+        <h1>{{ 'blog.title'|transchoice(posts|length) }}</h1>
+
+        <table style="margin: 0 auto;">
+            {% for post in posts %}
+                <tr style="
+                        background: {{ cycle(['lightgrey', 'white'], post.id) }};
+                        color: {{ post.isPublished ? 'black' : 'red' }};
+                    ">
+                    <td>{{ post.translate.title }}</td>
+                    <td>{{ post.category.name }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

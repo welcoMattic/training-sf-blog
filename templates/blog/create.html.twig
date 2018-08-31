@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block page_title %}
+    <h1>Création d'un article de blog</h1>
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="col-xs-6">
+        {{ form_start(form) }}
+            {{ form_errors(form) }}
+            {{ form_row(form.title) }}
+            {{ form_row(form.body) }}
+            {{ form_row(form.category) }}
+            {{ form_row(form.is_published) }}
+
+            <button type="submit" class="btn btn-primary">submit</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
